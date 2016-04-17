@@ -1,8 +1,10 @@
-angular.module('activitiApp').factory('TasksModalService', function ($modal, FormDataService, TasksService, $rootScope,UserService,ProcessInstanceService,ProcessInstancesService) {
+angular.module('activitiApp').factory('TasksModalService', function ($modal, FileUploader, FormDataService, TasksService, $rootScope,UserService,ProcessInstanceService,ProcessInstancesService) {
 
     var ModalInstanceCtrl = function ($scope, $modalInstance, moment, taskDetailed) {
+        
+        $scope.uploader = new FileUploader();
         $scope.taskDetailed = taskDetailed;
-
+        
 
         function extractDataFromForm(objectOfReference) {
             var objectToSave = {

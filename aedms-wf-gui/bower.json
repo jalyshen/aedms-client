@@ -1,5 +1,5 @@
 {
-    "name": "webapp",
+    "name": "aedms-wf-gui",
     "version": "0.1.0",
     "dependencies": {
         "angular": "~1.2.16",
@@ -7,7 +7,9 @@
         "angular-resource": "~1.2.16",
         "angular-route": "~1.2.16",
         "angular-bootstrap": "~0.11.0",
-            "angular-moment":"~0.7.1"
-    }
-
+        "angular-file-upload": "~2.2.0",
+        "angular-moment":"~0.7.1"
+    },
+    "appPath": "app",
+    "moduleName": "aedmsWFGuiApp"
 }
