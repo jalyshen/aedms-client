@@ -17,15 +17,10 @@
                 <div class="row" ng-if="item.type=='uploadfile'">
                   <input  ng-visible="item.readable" ng-enabled="item.writable"
                       ng-required="item.required"
-                      type="file" class="form-control" placeholder="{{item.name}}"
+                      type="string" class="form-control" placeholder="{{item.name}}"
                       ng-model="taskDetailed.propertyForSaving[item.id].value"
-                      nv-file-select uploader="uploader"/><br/>
-                  <ul>
-                     <li ng-repeat="fileupload in uploader.queue">
-                        Name: <span ng-bind="fileupload.file.name"></span><br/>
-                        <button ng-click="fileupload.upload()">upload</button>
-                     </li>
-                  </ul>
+                      /><br/>
+                      <button type="file" ngf-select="upload($file)">Upload on file select</button>
                 </div>
 
                 <input ng-if="item.type=='boolean'" ng-visible="item.readable" ng-enabled="item.writable"

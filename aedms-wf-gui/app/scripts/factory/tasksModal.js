@@ -1,10 +1,25 @@
-angular.module('activitiApp').factory('TasksModalService', function ($modal, FileUploader, FormDataService, TasksService, $rootScope,UserService,ProcessInstanceService,ProcessInstancesService) {
+angular.module('activitiApp').factory('TasksModalService', function ($modal, Upload, FormDataService, TasksService, $rootScope,UserService,ProcessInstanceService,ProcessInstancesService) {
 
     var ModalInstanceCtrl = function ($scope, $modalInstance, moment, taskDetailed) {
         
-        $scope.uploader = new FileUploader();
+        $scope.upload = function (file) {
+          Upload.upload({
+              url: 'http://localhost:8080/aedms-wf/upload',
+              data: {file: file, filename: file.name}
+
+          }).then(function (resp) {
+            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+          }, function (resp) {
+            console.log('Error status: ' + resp.status);
+          }, function (evt) {
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+          });
+       };
+
         $scope.taskDetailed = taskDetailed;
         
+
 
         function extractDataFromForm(objectOfReference) {
             var objectToSave = {
