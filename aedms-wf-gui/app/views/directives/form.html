@@ -21,6 +21,15 @@
                       ng-model="taskDetailed.propertyForSaving[item.id].value"
                       /><br/>
                       <button type="file" ngf-select="upload($file)">Upload on file select</button>
+                      <span class="progress" ng-show="progressPercentage >= 0">
+                      <div style="width:{{progressPercentage}}%" ng-bind="progressPercentage + '%'"></div>
+                      </span>
+                      <div  ng-show="progressPercentage == 100">
+                           <span>Upload Successful</span><br/>
+                           <span>Location: {{cmisFile.cmisLocation}} </span>
+                           {{taskDetailed.propertyForSaving[item.id].value=cmisFile.cmisLocation}}
+                      </div>
+                      
                 </div>
 
                 <input ng-if="item.type=='boolean'" ng-visible="item.readable" ng-enabled="item.writable"
