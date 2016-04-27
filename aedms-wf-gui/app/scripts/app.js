@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('activitiApp', [ 'ngResource', 'ui.bootstrap', "ngRoute",'angularMoment', 'ngFileUpload'])
+angular.module('activitiApp', [ 'ngResource', 'ui.bootstrap', "ngRoute",'angularMoment', 'ngFileUpload', 'nvd3'])
 
     // Temporary until we have a login page: always log in with kermit:kermit
 //    .config(['$httpProvider', function ($httpProvider) {
@@ -32,12 +32,10 @@ angular.module('activitiApp', [ 'ngResource', 'ui.bootstrap', "ngRoute",'angular
             }).when('/instances', {
                 templateUrl: 'views/instances.html',
                 controller: 'InstancesCtrl'
-            })
-
-//            .when('/tasks', {
-//                templateUrl: 'views/tasks.html',
-//                controller: 'TaskCtrl'
-//            })
+            }).when('/monitor', {
+               templateUrl: 'views/monitor.html',
+               controller: 'MonitorCtrl'
+           })
             .otherwise({
                 redirectTo: '/'
             });
