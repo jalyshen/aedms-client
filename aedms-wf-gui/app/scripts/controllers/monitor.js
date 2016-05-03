@@ -5,16 +5,9 @@ angular.module('activitiApp').controller('MonitorCtrl', function ($scope, $rootS
     }
 
     
-     MonitorBAMService.get(function(response) {
+     MonitorBAMService.query(function(response) {
       
-         var engineFleetKPI = response
-         var engineFleetArray = [{"label" : "A" , "value" : -29.765957771107}];
-
-         console.log("Get Engines KPI " + JSON.stringify(engineFleetKPI));
-         
-         for(var index in engineFleetKPI) {
-            engineFleetArray.push({"label" : index, "value" : engineFleetKPI[index]})
-         }
+         var engineFleetArray =response;
 
         $scope.options = {
           chart: {
