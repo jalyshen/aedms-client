@@ -18,6 +18,7 @@
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/nvd3/build/nv.d3.css">
     <!-- endbuild -->
 </head>
 <body ng-app="activitiApp" ng-controller="RootCtrl">
@@ -66,6 +67,11 @@
                     <a ng-click="changeView('instances')"><span class="glyphicon glyphicon-play-circle"></span>Instances</a>
 
                 </li>
+
+                <li>
+                    <a ng-click="changeView('monitor')"><span class="glyphicon glyphicon-cog"></span>Admin Monitor</a>
+
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li ng-show="loggedin" class="dropdown" ng-show="loggedin"><a href="#" class="dropdown-toggle"
@@ -99,6 +105,10 @@
 <script src="bower_components/moment/moment.js"></script>
 <script src="bower_components/angular-moment/angular-moment.js"></script>
 
+<script src="bower_components/d3/d3.js"></script>
+<script src="bower_components/nvd3/build/nv.d3.js"></script> <!-- or use another assembly -->
+<script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
+
 <!-- build:js scripts/scripts.js -->
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/main.js"></script>
@@ -112,6 +122,7 @@
 <script src="scripts/controllers/processes.js"></script>
 <script src="scripts/controllers/TaskModelController.js"></script>
 <script src="scripts/controllers/instances.js"></script>
+<script src="scripts/controllers/monitor.js"></script>
 
 
 <script src="scripts/directives/pastTime.js"></script>
@@ -129,6 +140,8 @@
 <script src="scripts/factory/processInstancesService.js"></script>
 <script src="scripts/factory/processInstanceService.js"></script>
 <script src="scripts/factory/tasksModal.js"></script>
+<script src="scripts/factory/monitorbam.js"></script>
+
 
 </body>
 </html>
