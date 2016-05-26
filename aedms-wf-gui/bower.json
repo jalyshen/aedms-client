@@ -8,7 +8,9 @@
     "angular-bootstrap": "~0.11.0",
     "ng-file-upload": "~12.0.0",
     "angular-moment": "~0.7.1",
-    "angular-nvd3": "1.0.6"
+    "angular-nvd3": "1.0.6",
+    "angular-shiro": "0.1.2"
+
   },
   "appPath": "app",
   "moduleName": "aedmsWFGuiApp",
