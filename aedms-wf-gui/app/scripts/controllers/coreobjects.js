@@ -1,4 +1,4 @@
-angular.module('activitiApp').controller('CoreObjectsCtrl', function ($scope, $rootScope, $location,CoreObjectService, $modal) {
+angular.module('activitiApp').controller('CoreObjectsCtrl', function ($scope, $rootScope, $location,CoreObjectService, ReportService, $modal, $http) {
     if (typeof  $rootScope.loggedin == 'undefined' || $rootScope.loggedin == false) {
         $location.path('/login');
         return;
@@ -48,5 +48,29 @@ angular.module('activitiApp').controller('CoreObjectsCtrl', function ($scope, $r
         });
         uibModalInstance.result.then(function (newEngine) {}, function () {});
     };
+
+    //To generate ad-hoc report for the engine.
+    //TODO: Pass in the engine ID as param.
+    //TODO: change to resource
+    $scope.genReport = function(engine){
+    	   $http({
+                 url: 'http://localhost:8085/aedms-reporting/reportgen/',
+                 method: "POST",
+                 data: { 
+                 	     'reportName' : 'report.samples.customer.design',
+                         'reportParm1':'name'
+                       }
+           })
+          .then(function(response) {
+          	   //TODO: display this nicely
+          	   var file = new Blob([response], {type: 'application/pdf'});
+               var fileURL = URL.createObjectURL(file);
+               window.open(fileURL);
+           }, 
+           function(response) { // optional
+            // failed
+           });
+    };
+  
 
 });
